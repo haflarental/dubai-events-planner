@@ -784,48 +784,157 @@ details.faq-item[open] .faq-arrow { transform: rotate(45deg); background: var(--
   line-height: 1.75;
 }
 
-/* ── CTA Banner ── */
+/* ── Invitation Maker Banner ── */
 .cta-banner {
-  background: linear-gradient(105deg, var(--red) 0%, #e0081d 50%, var(--red-d) 100%);
-  padding: 72px 0;
-  text-align: center;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(255,255,255,.14) 0 3px, transparent 4px),
+    radial-gradient(circle at 92% 80%, rgba(255,214,92,.24) 0 4px, transparent 5px),
+    linear-gradient(105deg, var(--red) 0%, #e0081d 52%, var(--red-d) 100%);
+  background-size: 54px 54px, 72px 72px, auto;
+  padding: 64px 0;
   color: #fff;
   position: relative;
   overflow: hidden;
 }
 .cta-banner::before {
-  content: '🎉🎈🏰🌊🎩';
+  content: '';
   position: absolute;
-  font-size: 4rem;
-  opacity: .06;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  letter-spacing: 40px;
-  white-space: nowrap;
+  width: 330px;
+  height: 330px;
+  right: -125px;
+  bottom: -205px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
   pointer-events: none;
 }
-.cta-banner h2 {
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 800;
-  margin-bottom: 12px;
+.invitation-promo {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(245px, .65fr);
+  align-items: center;
+  gap: 58px;
 }
-.cta-banner p { opacity: .9; margin-bottom: 32px; font-size: 1rem; }
-.cta-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
-.btn-cta-outline {
+.invitation-content { text-align: left; }
+.invitation-kicker {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
+  gap: 8px;
+  margin-bottom: 15px;
+  padding: 7px 13px;
+  border: 1px solid rgba(255,255,255,.34);
+  border-radius: 999px;
+  background: rgba(255,255,255,.12);
   font-family: 'Poppins', sans-serif;
+  font-size: .74rem;
   font-weight: 700;
-  font-size: .86rem;
-  border-radius: 30px;
-  padding: 14px 28px;
-  border: 2px solid rgba(255,255,255,.5);
-  color: #fff;
-  transition: background .2s, border-color .2s;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
-.btn-cta-outline:hover { background: rgba(255,255,255,.12); border-color: #fff; }
+.cta-banner .invitation-title {
+  max-width: 720px;
+  margin: 0 0 16px;
+  font-size: clamp(1.9rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.14;
+  letter-spacing: -.035em;
+}
+.cta-banner .invitation-copy {
+  max-width: 710px;
+  margin: 0 0 28px;
+  color: rgba(255,255,255,.9);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+.invitation-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 22px;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--red-d);
+  font-family: 'Poppins', sans-serif;
+  font-size: .88rem;
+  font-weight: 800;
+  box-shadow: 0 12px 28px rgba(92,0,11,.22);
+  transition: transform .2s, box-shadow .2s, background .2s, color .2s;
+}
+.invitation-link:hover {
+  transform: translateY(-2px);
+  background: transparent;
+  color: #fff;
+  box-shadow: 0 16px 34px rgba(92,0,11,.28);
+}
+.invitation-link-arrow {
+  font-size: 1.15rem;
+  transition: transform .2s;
+}
+.invitation-link:hover .invitation-link-arrow { transform: translateX(4px); }
+.invitation-preview {
+  position: relative;
+  width: min(100%, 270px);
+  min-height: 320px;
+  margin: 0 auto;
+  padding: 34px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 8px solid rgba(255,255,255,.24);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle, rgba(239,85,110,.22) 0 2px, transparent 3px) 0 0 / 30px 30px,
+    linear-gradient(145deg, #fff9e9, #fff);
+  color: #3b315f;
+  text-align: center;
+  box-shadow: 0 24px 48px rgba(92,0,11,.28);
+  transform: rotate(3deg);
+}
+.invitation-preview::before {
+  content: '';
+  position: absolute;
+  inset: 12px;
+  border: 2px solid rgba(239,47,74,.18);
+  border-radius: 18px;
+}
+.invitation-preview > * { position: relative; z-index: 1; }
+.preview-label {
+  margin-bottom: 18px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: #ffe7eb;
+  color: #d50b26;
+  font-family: 'Poppins', sans-serif;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.preview-cake { margin-bottom: 8px; font-size: 3rem; line-height: 1; }
+.invitation-preview h3 {
+  margin-bottom: 7px;
+  color: #3b315f;
+  font-size: 1.55rem;
+  line-height: 1.15;
+}
+.invitation-preview p {
+  margin: 0;
+  color: #72698c;
+  font-size: .78rem;
+  font-weight: 600;
+  line-height: 1.55;
+}
+.preview-star {
+  position: absolute;
+  color: #f5b923;
+  font-size: 1.5rem;
+}
+.preview-star.top { top: 25px; right: 24px; }
+.preview-star.bottom { bottom: 25px; left: 22px; font-size: 1.05rem; }
 
 /* ── Footer ── */
 footer { background: var(--dark); color: #8fa3c4; }
@@ -994,7 +1103,11 @@ footer { background: var(--dark); color: #8fa3c4; }
   .f-top { grid-template-columns: 1fr; padding: 44px 0 30px; }
   .strip .inner { flex-direction: column; align-items: flex-start; gap: 4px; }
   .strip .right { flex-direction: column; align-items: flex-start; gap: 4px; }
-  .cta-actions { flex-direction: column; align-items: center; }
+  .invitation-promo { grid-template-columns: 1fr; gap: 42px; }
+  .invitation-content { text-align: center; }
+  .cta-banner .invitation-title,
+  .cta-banner .invitation-copy { margin-left: auto; margin-right: auto; }
+  .invitation-preview { width: min(82%, 255px); min-height: 295px; transform: rotate(2deg); }
   .trust-inner { justify-content: flex-start; gap: 18px; }
 }
 @media (max-width: 480px) {
@@ -1003,6 +1116,11 @@ footer { background: var(--dark); color: #8fa3c4; }
   .brand-icon { width: 32px; height: 32px; font-size: .95rem; }
   .nav-actions { gap: 8px; }
   .nav-actions .btn { padding: 9px 14px; font-size: .76rem; }
+  .cta-banner { padding: 48px 0; }
+  .invitation-promo { gap: 34px; }
+  .cta-banner .invitation-title { font-size: 1.8rem; }
+  .cta-banner .invitation-copy { font-size: .92rem; line-height: 1.65; }
+  .invitation-link { width: 100%; padding: 14px 16px; }
 }
 </style>
 </head>
@@ -1190,7 +1308,7 @@ footer { background: var(--dark); color: #8fa3c4; }
         <span class="about-eyebrow">About HaflaRental</span>
         <h2 class="about-headline">Dubai's Trusted <span class="about-accent">Party &amp; Event</span> Rental Company</h2>
         <p class="about-desc">Since 2017, HaflaRental has been creating magical celebrations for families across Dubai and Sharjah. From bouncy castles to full event styling, we handle every detail so you can focus on enjoying the moment.</p>
-        <p class="about-desc">With years of experience in the UAE events industry, <strong>Aamir Ahmad Khan</strong> and his team focus on creating stress-free, beautifully executed events. Our dedication to customer satisfaction and reliable service is what has earned us recognition among the <a href="https://best-events-planner.haflarental.deno.net" style="color:var(--red);font-weight:700;">Best Events Planners in Dubai</a></p>
+        <p class="about-desc">With years of experience in the UAE events industry, <strong>Aamir Ahmad Khan</strong> and his team focus on creating stress-free, beautifully executed events. Our dedication to customer satisfaction and reliable service is what has earned us recognition among the Best Events Planners in Dubai</p>
         <div class="about-stats">
           <div class="about-stat"><strong>8<span>+</span></strong><em>Years Active</em></div>
           <div class="about-stat"><strong>500<span>+</span></strong><em>Events Done</em></div>
@@ -1365,17 +1483,37 @@ footer { background: var(--dark); color: #8fa3c4; }
   </div>
 </section>
 
-<!-- CTA BANNER -->
+<!-- INVITATION MAKER BANNER -->
 <div class="cta-banner">
-  <div class="container">
-    <h2>Let's Make Your Next Event Unforgettable 🎉</h2>
-    <p>Message us on WhatsApp and get a free, no-obligation quote within minutes.</p>
-    <div class="cta-actions">
-      <a href="https://api.whatsapp.com/send/?phone=971529487887" class="btn btn-white" target="_blank">📲 Chat With Us on WhatsApp</a>
-      <a href="tel:+971529487887" class="btn-cta-outline">📞 Call +971 52 948 7887</a>
+  <div class="container invitation-promo">
+    <div class="invitation-content">
+      <span class="invitation-kicker">A helpful party-planning extra</span>
+      <h2 class="invitation-title">Let's Design Your Event Invitation Card!</h2>
+      <p class="invitation-copy">
+        First impressions matter. Give your guests a sneak peek of your special day with a personalized digital or printable invitation made in minutes.
+      </p>
+      <a
+        href="https://haflarental.github.io/free-birthday-invitation-maker/"
+        class="invitation-link"
+        target="_blank"
+        rel="noopener"
+      >
+        Explore Smart Invitation Maker 
+        <span class="invitation-link-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+
+    <div class="invitation-preview" aria-hidden="true">
+      <span class="preview-star top">✦</span>
+      <span class="preview-star bottom">✦</span>
+      <span class="preview-label">You're invited</span>
+      <span class="preview-cake">🎂</span>
+      <h3>Birthday Party</h3>
+      <p>A special celebration<br>is waiting for you</p>
     </div>
   </div>
 </div>
+
 
 <!-- FOOTER -->
 <footer>
